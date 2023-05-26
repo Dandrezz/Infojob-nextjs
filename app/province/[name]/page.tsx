@@ -23,7 +23,7 @@ export default function Province({ params }:{ params: { name: string }}) {
 
     return (
         <div className="h-full bg-[#8c88eb] rounded-lg">
-			<h1 className="text-white font-bold text-5xl text-center mb-10">
+			<h1 className="text-white font-bold text-5xl text-center mb-10 pt-10">
 				{capitalizeFirstLetter(name)}
 			</h1>
 			<div className='pb-5'>

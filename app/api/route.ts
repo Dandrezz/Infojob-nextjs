@@ -5,7 +5,7 @@ async function getOfferByProvince(province: string) {
     {
         headers: {
             'Content-Type': 'application/json',
-            Authorization: `Basic Y2M2Y2Q2MGM3ZGRmNDU1YThhZWNjNGE2YTNhZGZlNTE6REg0K1Bld0xCNnduMW1UOTJ5WlZxUUdSYzZoQ2xJMkpIL3cwRmNIR2k0NnlVVnVkaEQ=`
+            Authorization: `Basic ${process.env.TOKEN}`
         }
     })
     const offerJson = await offer.json()
