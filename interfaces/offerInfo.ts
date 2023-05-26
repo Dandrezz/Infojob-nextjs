@@ -33,6 +33,7 @@ export interface Item {
     bold:           boolean;
     applications:   string;
     urgent:         boolean;
+    salaryDescription: string;
 }
 
 export interface Author {
