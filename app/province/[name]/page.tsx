@@ -11,10 +11,13 @@ export default function Province({ params }: { params: { name: string } }) {
 
 	useEffect(() => {
 		fetch(`/api?province=${name}`).then(res => res.json()).then(data => {
-			if (data.error) return
+			if (data.error) {
+				router.replace('/error')
+				return
+			}
 			setOfferInfo(data.offers)
 		});
-	}, [name])
+	}, [name,router])
 
 	const capitalizeFirstLetter = (value: string) => {
 		return `${value.charAt(0).toUpperCase()}${value.slice(1).toLowerCase()}`;
@@ -36,7 +39,7 @@ export default function Province({ params }: { params: { name: string } }) {
 								<div className='basis-4/5'>
 									<p className='text-gray-500 text-sm'>{new Date(offer.published).toString()}</p>
 									<p className='my-1 text-gray-700'>{capitalizeFirstLetter(offer.requirementMin)}</p>
-									<p className='text-gray-700'>{offer.salaryDescription}</p>
+									<p className='text-gray-500'>{offer.salaryDescription}</p>
 								</div>
 								<div className='basis-1/5 flex flex-row justify-center items-center w-auto'>
 									<button
@@ -50,6 +53,9 @@ export default function Province({ params }: { params: { name: string } }) {
 					))
 				}
 			</div>
+			<footer className="flex justify-center items-center gap-x-2 font-semibold py-5 text-black">
+				Hecho con <span className="text-red-500">❤</span> por Dandrezz
+			</footer>
 		</div>
 	)
 }
